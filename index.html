@@ -25,7 +25,7 @@ require([
     "esri/widgets/BasemapToggle",
     "esri/widgets/BasemapGallery"], function(Map, SceneView, BasemapToggle, BasemapGallery) {
       var map = new Map({
-        basemap: "streets-navigation-vector",
+        basemap: "satellite",
         ground: "world-elevation"  // show elevation
       });
 
@@ -42,12 +42,30 @@ require([
         }
       });
 
-      var basemapToggle = new BasemapToggle({
+      var basemapGallery = new BasemapGallery({
         view: view,
-        nextBasemap: "satellite"
+        source: {
+          portal: {
+            url: "http://www.arcgis.com",
+            useVectorBasemaps: true, // Load vector tile basemap group
+          },
+        }
       });
+      view.ui.add(basemapGallery, "top-right"); // Add to the view
 
-      view.ui.add(basemapToggle, "bottom-right");
+
+      var basemapGallery = new BasemapGallery({
+        view: view,
+        source: {
+          portal: {
+            // url:"https://pcc-gis.maps.arcgis.com/apps/3DViz/index.html?appid=914b67871ebe4233994a8c83f8427a79",
+            url: "https://www.arcgis.com",
+            useVectorBasemaps: false  // Load raster tile basemaps
+          }
+        }
+      });
+      iew.ui.add(basemapGallery, "bottom-right");
+
 });
 </script>
 
