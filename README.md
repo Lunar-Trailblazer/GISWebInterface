@@ -1,64 +1,50 @@
-3DViz
-==============
+# Lunar Trailblazer 3D Moon
 
-3D Viz is a simple configurable application template to visualize data in 3D on a globe.
+This interactive web tool lets you pan, zoom, and drag around the 3D moon model to study the surface mineralogy composition of the moon, and in particular, the  hidden hydroxyl and water compounds found in the permenantly-shadowed regions of the moon.
 
-![Screen Shot](http://coolmaps.esri.com/templates/3DViz/images/thumb.png)
+## Getting Started
 
-[View it live] (http://coolmaps.esri.com/templates/3DViz)
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-#Features
-A configurable application template to display web scenes.
+### Prerequisites
+
+```
+Clients: JavaScript IDE such as Visual Studio Code, Atom, or Sublime Text
+Servers: npm installation (don't worry about it). But if the server is not running, you won't be able to see some features because we are still working on the deployment aspect
+```
+
+### Installing
+
+1. In the project repository, click on the green 'Clone or Download' button
+2. Open up the command line application
+```
+git clone <url>
+```
+3. From the command line, navigate to the downloaded project folder
+4. Make sure the server connection is on and run the web server
+```
+live-server
+```
+5. Open up a web browser and navigate to url: 
+```
+https://lunar-trailblazer.github.io
+```
+
+## Deployment
+
+Not yet implemented
+
+## Built With
+
+* [NPM](https://www.npmjs.com) - Dependency Management
+* [Express](https://expressjs.com) - The web framework used
+
+## Authors
+
+* **Winnie Jeng** - *Front-end* - [Assistant Researcher of the LTM](https://github.com/winniewjeng)
+* **Richard Tang** - *Back-end* - [UCLA computer science undergraduate student](https://github.com/rtspw)
 
 
-#Instructions
+## License
 
-1. Download and unzip the .zip file or clone the repo. 
-2. Web-enable the directory
-3. Access the .html page 
-4. See the readme page for more details. 
-
-
-#Deploying
-
-1. To deploy this application, download the template from Portal/ArcGIS Online and unzip it.
-2. Copy the unzipped folder containing the web app template files, such as index.html, to your web server. You can rename the folder to change the URL through which users will access the application. By default the URL to the app will be `http://<Your Web Server>/<app folder name>/index.html`
-3. Change the sharing host, found in defaults.js inside the config folder for the application, to the sharing URL for ArcGIS Online or Portal. For ArcGIS Online users, keep the default value of www.arcgis.com or specify the name of your organization.
-  - ArcGIS Online Example:  `"sharinghost": location.protocol + "//" + “<your organization name>.maps.arcgis.com`
-  - Portal Example where `arcgis` is the name of the Web Adaptor: `"sharinghost": location.protocol + "//" + "webadaptor.domain.com/arcgis"`
-4. If you are using Portal or a local install of the ArcGIS API for JavaScript, change all references to the ArcGIS API for JavaScript in index.html to refer to your local copy of the API. Search for the references containing `"//js.arcgis.com/"` and replace this portion of the reference with the url to your local install.
-  - For example: `"//webadaptor.domain.com/arcgis/jsapi/jsapi"` where `arcgis` is the name of your Web Adaptor.
-5. Copy a map or group ID from Portal/ArcGIS Online and replace the default web map ID in the application’s index.html page. You can now run the application on your web server or customize the application further.
-
-> **Note:** If your application edits features in a feature service, contains secure services or content that isn't shared publicly, or generates requests that exceed 200 characters, you may need to set up and use a proxy page. Common situations where you may exceed the URL length are using complex polygons as input to a task or specifying a spatial reference using well-known text (WKT). For details on installing and configuring a proxy page see [Using the proxy](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html). If you do not have an Internet connection, you will need to access and deploy the ArcGIS API for JavaScript documentation from [developers.arcgis.com](https://developers.arcgis.com/).
-
-
-#Requirements
-
-- Notepad or HTML editor
-- Some background with HTML, CSS and JavaScript
-- Experience with the ArcGIS API for JavaScript is helpful. 
-
-#Resources
-
-- [ArcGIS API for JavaScript Resource Center](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html)
-
-#Issues
-Found a bug or want to request a new feature? Please let us know by submitting an issue. 
-
-#Contributing
-Anyone and everyone is welcome to contribute. 
-
-#Licensing 
-
-Copyright 2016 Esri
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
-A copy of the license is available in the repository's license.txt file.
-[](Esri Tags: ArcGIS Online Web Application Templates) 
-[](Esri Language: JavaScript)
+This project is licensed under the Caltech Lunar Trailblazer Mission License
