@@ -7,15 +7,13 @@ This interactive web tool lets you pan, zoom, and drag around the 3D moon model 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
+Client-side manager: JavaScript IDE such as Visual Studio Code, Atom, or Sublime Text
+Server-side manager: npm installation (don't worry about it). But if the server is not running, you won't be able to see some features because we are still working on the deployment aspect
 
-```
-Clients: JavaScript IDE such as Visual Studio Code, Atom, or Sublime Text
-Servers: npm installation (don't worry about it). But if the server is not running, you won't be able to see some features because we are still working on the deployment aspect
-```
 
 ### Installing
 
-1. In the project repository, click on the green 'Clone or Download' button
+1. In the project repository, click on the green 'Clone or Download' button and copy the url
 2. Open up the command line application
 ```
 git clone <url>
@@ -39,10 +37,10 @@ Not yet implemented
 * [NPM](https://www.npmjs.com) - Dependency Management
 * [Express](https://expressjs.com) - The web framework used
 
-## Authors
+## Developers
 
-* **Winnie Jeng** - *Front-end* - [Assistant Researcher of the LTM](https://github.com/winniewjeng)
-* **Richard Tang** - *Back-end* - [UCLA computer science undergraduate student](https://github.com/rtspw)
+* **Winnie Jeng** - *Front End* - [Assistant Researcher of the LTM](https://github.com/winniewjeng)
+* **Richard Tang** - *Back End* - [UCLA computer science undergraduate student](https://github.com/rtspw)
 
 
 ## License
