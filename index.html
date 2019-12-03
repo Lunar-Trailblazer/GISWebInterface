@@ -1,76 +1,15 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Lunar Trailblazer Javascript Starter Map</title>
-    <style>
-      html, body, #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
-
-    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css">
-    <script src="https://js.arcgis.com/4.13/"></script>
-
-    <script>
-
-require([
-    "esri/Map",
-    "esri/views/SceneView",
-    //*** ADD ***//
-    "esri/widgets/BasemapToggle",
-    "esri/widgets/BasemapGallery"], function(Map, SceneView, BasemapToggle, BasemapGallery) {
-      var map = new Map({
-        basemap: "satellite",
-        ground: "world-elevation"  // show elevation
-      });
-
-      var view = new SceneView({
-        container: "viewDiv",
-        map: map,
-        camera: {
-          position: {  // observation point
-            x: -118.80800,
-            y: 33.96100,
-            z: 25000 // altitude in meters
-          },
-          tilt: 65  // perspective in degrees
-        }
-      });
-
-      var basemapGallery = new BasemapGallery({
-        view: view,
-        source: {
-          portal: {
-            url: "http://www.arcgis.com",
-            useVectorBasemaps: true, // Load vector tile basemap group
-          },
-        }
-      });
-      view.ui.add(basemapGallery, "top-right"); // Add to the view
-
-
-      var basemapGallery = new BasemapGallery({
-        view: view,
-        source: {
-          portal: {
-            // url:"https://pcc-gis.maps.arcgis.com/apps/3DViz/index.html?appid=914b67871ebe4233994a8c83f8427a79",
-            url: "https://www.arcgis.com",
-            useVectorBasemaps: false  // Load raster tile basemaps
-          }
-        }
-      });
-      iew.ui.add(basemapGallery, "bottom-right");
-
-});
-</script>
-
-  </head>
-  <body>
-    <div id="viewDiv"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Lunar Trailblazer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.13/" defer></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!-- This div is targeted and populated by the ArcGIS framework -->
+  <div id="viewDiv"></div>
+</body>
 </html>

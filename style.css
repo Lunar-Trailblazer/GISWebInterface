@@ -1,0 +1,13 @@
+html, body, #viewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* ArcGIS div has a transparent background
+ * This places a gradient in the back */
+body {
+  background: rgb(9,28,46);
+  background: radial-gradient(circle, rgba(9,28,46,1) 0%, rgba(6,4,28,1) 100%);
+}
