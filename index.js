@@ -32,7 +32,7 @@ require([
       return this.urlTemplate
         .replace("{z}", level)
         .replace("{x}", col)
-        .replace("{y}", ( 2 ** level - 1) - row);
+        .replace("{y}", (2**level - 1) - row);
     },
 
     /**
@@ -62,18 +62,6 @@ require([
     }
   });
 
-<<<<<<< HEAD
-  const shadedReliefLayer = new TestTileLayer({
-    urlTemplate:
-      'http://localhost:12321/shaded-relief/{z}/{x}/{y}.png',
-    title: 'Shaded Relief Layer',
-  });
-
-  const lunarClementineLayer = new TestTileLayer({
-    urlTemplate:
-      'http://localhost:12321/clementine/{z}/{x}/{y}.png',
-    title: 'Lunar Clementine Layer',
-=======
   /**
    * LC layer which takes images stored in personal server (Raspberry Pi)
    * The framework uses the urlTemplate to find the image files
@@ -101,7 +89,6 @@ require([
       /*'http://spw.us.to:65449/lc/{z}/{x}/{y}.png',*/
       'http://localhost:65449/lc/{z}/{x}/{y}.png',
     title: 'Lunar Clementine Test Layer',
->>>>>>> parent of 827c578... fixed tiling
   });
 
   /**
@@ -129,18 +116,13 @@ require([
    * A tile image layer using a tile layer service (some server hosting the tiles)
    * These load faster than the other layer but isn't as pretty.
    */
-  const moonBaseLayer = new TileLayer({
+  const moonTileLayer = new TileLayer({
     url:
       'https://tiles.arcgis.com/tiles/WQ9KVmV6xGGMnCiQ/arcgis/rest/services/Moon_Basemap_Tile0to9/MapServer',
-    title: 'Moon Base Map',
   });
 
   const map = new Map({
-<<<<<<< HEAD
-    layers: [moonBaseLayer, lunarClementineLayer , shadedReliefLayer],
-=======
     layers: [moonTileLayer, lunarClementineLayer , moonLROCWMSLayer],
->>>>>>> parent of 827c578... fixed tiling
   });
 
   /**
