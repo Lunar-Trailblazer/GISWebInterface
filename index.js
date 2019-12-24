@@ -35,7 +35,7 @@ require([
       return this.urlTemplate
         .replace("{z}", level)
         .replace("{x}", col)
-        .replace("{y}", (2**level - 1) - row);
+        .replace("{y}", ( 2 ** level - 1) - row);
     },
 
     /**
@@ -69,14 +69,14 @@ require([
    * A tile image layer using a tile layer service (some server hosting the tiles)
    * These load faster than the other layer but isn't as pretty.
    */
-  const moonTileLayer = new TileLayer({
+  const moonBaseLayer = new TileLayer({
     url:
       'https://tiles.arcgis.com/tiles/WQ9KVmV6xGGMnCiQ/arcgis/rest/services/Moon_Basemap_Tile0to9/MapServer',
     title: 'Moon Base Map',
   });
 
   const map = new Map({
-    layers: [moonTileLayer, lunarClementineLayer , shadedReliefLayer],
+    layers: [moonBaseLayer, lunarClementineLayer , shadedReliefLayer],
   });
 
   /**
