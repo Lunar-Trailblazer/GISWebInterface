@@ -56,13 +56,13 @@ require([
   const shadedReliefLayer = new TestTileLayer({
     urlTemplate:
       'http://localhost:12321/shaded-relief/{z}/{x}/{y}.png',
-    title: 'Shaded Relief Test Layer',
+    title: 'Shaded Relief Layer',
   });
 
   const lunarClementineLayer = new TestTileLayer({
     urlTemplate:
       'http://localhost:12321/clementine/{z}/{x}/{y}.png',
-    title: 'Lunar Clementine Test Layer',
+    title: 'Lunar Clementine Layer',
   });
 
   /**
@@ -72,6 +72,7 @@ require([
   const moonTileLayer = new TileLayer({
     url:
       'https://tiles.arcgis.com/tiles/WQ9KVmV6xGGMnCiQ/arcgis/rest/services/Moon_Basemap_Tile0to9/MapServer',
+    title: 'Moon Base Map',
   });
 
   const map = new Map({
