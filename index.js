@@ -28,6 +28,9 @@ require([
       urlTemplate: null,
     },
 
+    /**
+    * each zoom level increases the number of tile needed to 2^(n), where n = level
+    */
     getTileUrl: function(level, row, col) {
       return this.urlTemplate
         .replace("{z}", level)
@@ -45,71 +48,21 @@ require([
         responseType: "image",
         signal: options && options.signal,
       }).then(res => {
-        const imgElement = res.data;
-        const width = this.tileInfo.size[0];
-        const height = width;
-
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = width;
-        canvas.height = height;
-        ctx.drawImage(imgElement, 0, 0, width, height);
-        ctx.font = '28px serif';
-        ctx.fillStyle = 'white';
-        ctx.fillText(`(${level}, ${col}, ${row}[${(2**level - 1) - row}])`, 20, 20);
-        return canvas;
+          return res.data;
       });
     }
   });
 
-  /**
-   * LC layer which takes images stored in personal server (Raspberry Pi)
-   * The framework uses the urlTemplate to find the image files
-   * However, the original data doesn't seem to use this tiling format.
-   * Instead, the images are georeferenced using a KML file, which
-   * isn't supported in ArcGIS's JS API. Adding georeferenced images
-   * directly also isn't supported, and must come through a Map Service of
-   * some kind.
-   *
-   * Considerations:
-   * - ArcGIS JS doesn't supported KML overlays and other KML functionality
-   *   doesn't work in SceneView.
-   * - The LC data doesn't follow the layout of tiled images. For example,
-   *   zoom 0 should have 1 image, zoom 1 should have 4, and zoom 2 should
-   *   have 16 images. However, in the actual data, zoom 0 has 1 image,
-   *   zoom 1 has 2, zoom 2 has 8, etc.
-   * - Maybe a map service could be implemented (seems to require
-   *   ArcGIS software) and each image file and its corresponding KML file
-   *   could be processed into georeferened image files.
-   * - Is there a way to make ground overlay KML work in ArcGIS? Maybe the
-   *   data could be turned into a tiled images somehow.
-   */
-  const lunarClementineLayer = new TestTileLayer({
+  const shadedReliefLayer = new TestTileLayer({
     urlTemplate:
-      /*'http://spw.us.to:65449/lc/{z}/{x}/{y}.png',*/
-      'http://localhost:65449/lc/{z}/{x}/{y}.png',
-    title: 'Lunar Clementine Test Layer',
+      'http://localhost:12321/shaded-relief/{z}/{x}/{y}.png',
+    title: 'Shaded Relief Test Layer',
   });
 
-  /**
-   * http://wms.lroc.asu.edu/lroc/
-   * Uses a Web Map Service from ASU to load the tiles in.
-   * Slower loading but seems higher quality? or not
-   * Considerations:
-   *   - Slower Loading
-   *   - Is it free to use?
-   *   - Saving tiles locally for faster loading?
-   *   - Seems to load on top of all other layers regardless of order,
-   *     a fix has to be found for that one
-   */
-  const moonLROCWMSLayer = new WMSLayer({
-    url:
-    'http://webmap.lroc.asu.edu/',
-    sublayers: [
-      {
-        name: 'luna_clem_ratio',
-      },
-    ],
+  const lunarClementineLayer = new TestTileLayer({
+    urlTemplate:
+      'http://localhost:12321/clementine/{z}/{x}/{y}.png',
+    title: 'Lunar Clementine Test Layer',
   });
 
   /**
@@ -122,7 +75,7 @@ require([
   });
 
   const map = new Map({
-    layers: [moonTileLayer, lunarClementineLayer , moonLROCWMSLayer],
+    layers: [moonTileLayer, lunarClementineLayer , shadedReliefLayer],
   });
 
   /**
