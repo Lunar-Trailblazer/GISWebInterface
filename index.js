@@ -35,7 +35,7 @@ require([
       return this.urlTemplate
         .replace("{z}", level)
         .replace("{x}", col)
-        .replace("{y}", (2 ** level - 1) - row);
+        .replace("{y}", 2**level - 1 - row);
     },
 
     /**
@@ -78,28 +78,10 @@ require([
     title: '122319 Clementine Test Layer',  
   });
 
-  /**
-   * http://wms.lroc.asu.edu/lroc/
-   * Uses a Web Map Service from ASU to load the tiles in.
-   * Slower loading but seems higher quality? or not
-   * Considerations:
-   *   - Slower Loading
-   *   - Is it free to use?
-   *   - Saving tiles locally for faster loading?
-   *   - Seems to load on top of all other layers regardless of order,
-   *     a fix has to be found for that one
-   
-  const moonLROCWMSLayer = new WMSLayer({
-    url:
-    'http://webmap.lroc.asu.edu/',
-    sublayers: [
-      {
-        name: 'luna_clem_ratio',
-      },
-    ],
-    title: 'lunar clemintine base map'
-  });
-*/
+  const tc = new TestTileLayer({
+      urlTemplate: 'http://localhost:12321/tc/{z}/{x}/{y}.png',
+      title: 'Kaguya'
+  })
    /* A tile image layer using a tile layer service (some server hosting the tiles)
    * These load faster than the other layer but isn't as pretty. */
    
@@ -111,7 +93,7 @@ require([
     
 
   const map = new Map({
-    layers: [moonTileLayer, /*lunarClementineLayer , /*moonLROCWMSLayer,*/ shadedReliefLayer, clementineTestLayer_2]
+    layers: [moonTileLayer, shadedReliefLayer, clementineTestLayer_2]
   });
 
   /**
